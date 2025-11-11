@@ -11,7 +11,7 @@ namespace GenshinImpactMovement
         //private SkinnedMeshRenderer meshRendererSize;
         private void Awake()
         {
-            movementStateMachine = new PlayerMovementStateMachine();
+            movementStateMachine = new PlayerMovementStateMachine(this);
             Input = GetComponent<PlayerInput>();
             Rigidbody = GetComponent<Rigidbody>();
             //meshRendererSize = GetComponentInChildren<SkinnedMeshRenderer>();

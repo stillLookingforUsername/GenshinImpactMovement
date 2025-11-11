@@ -6,17 +6,19 @@ namespace GenshinImpactMovement
 {
     public class PlayerMovementStateMachine : StateMachine
     {
+        public Player Player { get; }
         public PlayerIdlingState IdlingState { get; private set; }
         public PlayerWalkingState WalkingState { get; private set; }
         public PlayerRunningState RunningState { get; private set; }
         public PlayerSprintingState SprintingState { get; private set; }
 
-        public PlayerMovementStateMachine()
+        public PlayerMovementStateMachine(Player player)
         {
-            IdlingState = new PlayerIdlingState();
-            WalkingState = new PlayerWalkingState();
-            RunningState = new PlayerRunningState();
-            SprintingState = new PlayerSprintingState();
+            Player = player;
+            IdlingState = new PlayerIdlingState(this);
+            WalkingState = new PlayerWalkingState(this);
+            RunningState = new PlayerRunningState(this);
+            SprintingState = new PlayerSprintingState(this);
         }
     }
 }
